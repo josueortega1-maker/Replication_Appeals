@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+
+\newcommand{\resulttable}[1]{%
+  \IfFileExists{output/tables/#1}{\input{output/tables/#1}}{%
+    \begin{center}\fbox{\parbox{0.88\textwidth}{Run \texttt{do 00\_master.do} in Stata to create \path{output/tables/#1}.}}\end{center}}
+}
+
+\newcommand{\resultfigure}[2]{%
+  \begin{figure}[H]
+    \centering
+    \IfFileExists{output/figures/#1}{\includegraphics[width=#2\textwidth]{output/figures/#1}}{%
+      \fbox{\parbox{0.82\textwidth}{Run \texttt{do 00\_master.do} in Stata to create \path{output/figures/#1}.}}}
+  \end{figure}
+}
+
+\title{Replication Report for School Choice with Appeals}
+\author{Annotated research version}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{How to run the replication}
+
+Place this file in the root of the replication package and run
+\begin{verbatim}
+do 00_master.do
+\end{verbatim}
+from that directory in Stata 18 or later. The master file creates analysis datasets, estimates every empirical table in the main paper, and exports every main figure in PDF and PNG formats. Figure creation contains no internal figure titles. Captions should be supplied by the paper or by this report.
+
+The analysis starts from \texttt{data/sessions\_long.dta}. The supplied panel contains 10,220 participant-period records. The code excludes 25 records collected after six participants had exited their sessions, leaving the 10,195-record paper sample. Specifications with personal controls use 10,185 records because one participant has missing gender information.
+
+Researchers should distinguish four units of analysis:
+\begin{itemize}
+  \item participant-period records for truth-telling, rank, and welfare;
+  \item participant-periods with at least one appeal opportunity for the decision to file any appeal;
+  \item school-specific appeal opportunities for the decision to challenge a particular rejection;
+  \item complete seven-person market-periods for stability and Pareto comparisons.
+\end{itemize}
+
+The treatment order is always no appeals, strict appeals, and probabilistic appeals. Tables that contain only appeal treatments report strict appeals before probabilistic appeals.
+
+\section{Institutional rules}
+
+Table 1 contains no estimated quantity. It is included so that the replication report mirrors the table sequence in the paper.
+
+\resulttable{table1_uphold_rules.tex}
+
+\section{Truth-telling}
+
+Truth-telling equals one when a participant submits the complete induced preference ranking. Figure 1 uses participant-weighted means and confidence intervals based on standard errors clustered at the matching-group level.
+
+\resultfigure{figure1_truth_telling.pdf}{0.88}
+
+\resulttable{table2_truth_telling.tex}
+
+A first-choice definition of truth-telling is reported as a robustness exercise in the appendix below.
+
+\section{Appeal use}
+
+Figure 2 distinguishes appeal take-up from appeal success. Take-up is conditional on having at least one appeal opportunity. Success is conditional on filing at least one appeal and equals one when at least one filed appeal succeeds in that participant-period.
+
+\resultfigure{figure2_appeal_takeup_success.pdf}{0.88}
+
+\resulttable{table3_appeal_use.tex}
+
+Column 1 of Table 3 has 2,912 eligible participant-periods. Column 2 has 5,725 school-specific opportunities. These counts differ by construction and should not be compared with the 10,195 participant-period sample.
+
+\section{Assignment quality and welfare}
+
+Figure 3 reports final rank according to induced preferences and experimental points. Points are an affine transformation of rank, but they are retained because the additive scale permits the welfare decomposition.
+
+\resultfigure{figure3_rank_welfare.pdf}{0.88}
+
+\resulttable{table4_assigned_rank.tex}
+
+\subsection{Pareto dominance relative to truthful DA}
+
+The following table reproduces the allocation-level comparison discussed in the text. Weak dominance requires every role to be weakly better off than under truthful DA.\@ Strict dominance additionally requires at least one role to be strictly better off.
+
+\resulttable{table_pareto_dominance.tex}
+
+\subsection{Reporting and direct appeal channels}
+
+For each appeal treatment, the total welfare change relative to the corresponding no-appeals treatment is decomposed as
+\[
+\mathbb{E}[W^{\mathrm{final}}\mid r]-\mathbb{E}[W^{\mathrm{final}}\mid r_0]
+=
+\left\{\mathbb{E}[W^{\mathrm{first}}\mid r]-\mathbb{E}[W^{\mathrm{first}}\mid r_0]\right\}
++
+\mathbb{E}[W^{\mathrm{final}}-W^{\mathrm{first}}\mid r].
+\]
+The first term captures treatment-induced changes in submitted rankings and the resulting first-stage allocation. The second term captures improvements produced directly by the appeal stage.
+
+\resulttable{table5_welfare_decomposition.tex}
+
+\section{Stability}
+
+Strict blocking pairs use the underlying weak priority classes. Equal-priority differences created only by the first-stage tie-break are not classified as strict priority violations. A market-period is stable when it contains neither a strict blocking pair nor a wasted-seat claim.
+
+\resultfigure{figure4_stability.pdf}{0.90}
+
+\resulttable{table6_stability.tex}
+
+\section{Normalized comparison}
+
+The radar figure is descriptive. Rank-efficiency is defined as \(4\) minus mean assigned rank, and each axis is divided by its maximum across treatments. The normalization does not impose welfare weights and should not be interpreted as an aggregate ranking.
+
+\resultfigure{figure5_normalized_comparison.pdf}{0.82}
+
+\appendix
+\section{Sample and treatment diagnostics}
+
+\resulttable{tableA1_sample_audit.tex}
+\resulttable{tableA2_treatment_means.tex}
+
+\section{First-choice truth-telling}
+
+\resultfigure{figureA1_first_choice_truth.pdf}{0.88}
+
+\section{Consequential non-truthful reports}
+
+For each non-truthful report, the code replaces only that report with the induced ranking, holds all other reports fixed, and reruns the first-stage mechanism. The analysis uses the full seven-person market to calculate the counterfactual, then retains only valid focal participant-periods.
+
+\resulttable{tableA3_consequential_reports.tex}
+
+\section{School-specific appeal opportunities}
+
+\resulttable{tableA4_appeal_opportunities.tex}
+\resulttable{tableA5_missed_sure_appeals.tex}
+\resulttable{tableA6_appeal_value_regression.tex}
+
+\section{Additional figures}
+
+\resultfigure{figureA2_truth_over_periods.pdf}{0.96}
+\resultfigure{figureA3_blocking_and_waste.pdf}{0.90}
+
+\section{Research notes}
+
+The folder \texttt{output/data} contains analysis-ready datasets and CSV files for each estimated table. Researchers can use these files to modify specifications without repeating the market reconstruction. The file \texttt{INCONSISTENCIES.md} records differences between the uploaded paper snapshot and the final sample or definitions implemented here.
+
+\end{document}

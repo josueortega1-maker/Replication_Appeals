@@ -1,0 +1,61 @@
+round,treatment,top_choice_truth
+1,DA probabilistic,.4642857
+2,DA probabilistic,.45833334
+3,DA probabilistic,.41666666
+4,DA probabilistic,.4107143
+5,DA probabilistic,.47230849
+6,DA probabilistic,.56495857
+7,DA probabilistic,.48059008
+8,DA probabilistic,.40527952
+9,DA probabilistic,.46932054
+10,DA probabilistic,.47463769
+1,DA strict,.45238096
+2,DA strict,.47023809
+3,DA strict,.44047618
+4,DA strict,.48214287
+5,DA strict,.45238096
+6,DA strict,.53571427
+7,DA strict,.47023809
+8,DA strict,.45833334
+9,DA strict,.38690475
+10,DA strict,.4107143
+1,DA no appeals,.47619048
+2,DA no appeals,.46428573
+3,DA no appeals,.43452382
+4,DA no appeals,.42261904
+5,DA no appeals,.42857143
+6,DA no appeals,.41666666
+7,DA no appeals,.43064183
+8,DA no appeals,.42494825
+9,DA no appeals,.38897514
+10,DA no appeals,.41330227
+1,IA probabilistic,.44505495
+2,IA probabilistic,.47252747
+3,IA probabilistic,.51648355
+4,IA probabilistic,.48901099
+5,IA probabilistic,.56043959
+6,IA probabilistic,.5714286
+7,IA probabilistic,.56043959
+8,IA probabilistic,.52197802
+9,IA probabilistic,.56043959
+10,IA probabilistic,.57692307
+1,IA strict,.45833331
+2,IA strict,.51785713
+3,IA strict,.50595236
+4,IA strict,.52976191
+5,IA strict,.5535714
+6,IA strict,.50698757
+7,IA strict,.55305386
+8,IA strict,.55486542
+9,IA strict,.53442031
+10,IA strict,.56107658
+1,IA no appeals,.4642857
+2,IA no appeals,.38690475
+3,IA no appeals,.39880952
+4,IA no appeals,.42261904
+5,IA no appeals,.44047618
+6,IA no appeals,.45833334
+7,IA no appeals,.40709108
+8,IA no appeals,.47179091
+9,IA no appeals,.4373706
+10,IA no appeals,.4127847

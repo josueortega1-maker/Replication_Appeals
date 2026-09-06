@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+\centering
+\caption{Impact of appeals on stability}
+\label{tab:stability_effects_rep}
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lccc @{}}
+\toprule
+& Strict blocking pairs & Wasted-seat claims & Stable market-round \\
+& \((1.00)\) & \((2.00)\) & \((3.00)\) \\
+\midrule
+\multicolumn{4}{l}{\textbf{Panel A. IA treatments}} \\
+IA strict & \(-0.52^{***}\) & \(0.03^{***}\) & \(0.34^{***}\) \\
+ & \((0.06)\) & \((0.01)\) & \((0.03)\) \\
+IA probabilistic & \(-0.45^{***}\) & \(0.08^{***}\) & \(0.23^{***}\) \\
+ & \((0.06)\) & \((0.01)\) & \((0.04)\) \\
+\addlinespace
+\multicolumn{4}{l}{\textbf{Panel B. DA treatments}} \\
+DA strict & \(0.00\) & \(0.00\) & \(0.00\) \\
+ & \((0.00)\) & \((0.00)\) & \((0.00)\) \\
+DA probabilistic & \(0.31^{***}\) & \(0.78^{***}\) & \(-0.33^{***}\) \\
+ & \((0.05)\) & \((0.09)\) & \((0.04)\) \\
+\addlinespace
+Round effects & Yes & Yes & Yes \\
+\midrule
+Observations & 1{,}435 & 1{,}435 & 1{,}435 \\
+Matching groups & \(59\) & \(59\) & \(59\) \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Notes. \(^{***}p<0.01\), \(^{**}p<0.05\), \(^{*}p<0.100\). Entries are coefficients from linear regressions with round effects. Standard errors are clustered at the matching-group level. Outcomes use submitted preferences. Equal-priority tie-break claims are excluded from strict blocking pairs. A market-round is stable when it contains neither a strict blocking pair nor a wasted-seat claim.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
