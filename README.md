@@ -64,7 +64,7 @@ These samples are different by construction. The corresponding counts are report
 
 ## Inference
 
-Treatment was assigned at the session-level matching group. Standard errors are clustered at that level throughout. Figure 4 follows the current paper and gives equal weight to each independent session. Table 6 follows the current paper regression and gives equal weight to each complete market-period while clustering by session. This difference is flagged in `INCONSISTENCIES.md`.
+Treatment was assigned at the session-level matching group. Standard errors are clustered at that level throughout. 
 
 ## Paper to output map
 
