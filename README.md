@@ -62,7 +62,7 @@ Counts for each are written to `output/data/sample_audit.csv`.
 
 ## Inference
 
-Treatment was assigned at the session-level matching group, and standard errors are clustered at that level throughout. Figure 4 weights each independent session equally; Table 6 weights each complete market-period equally while clustering by session. This difference is documented in `INCONSISTENCIES.md`.
+Treatment was assigned at the session-level matching group, and standard errors are clustered at that level throughout. Figure 4 weights each independent session equally; Table 6 weights each complete market-period equally while clustering by session. 
 
 ## Paper to output map
 
