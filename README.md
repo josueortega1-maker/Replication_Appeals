@@ -66,10 +66,6 @@ These samples are different by construction. The corresponding counts are report
 
 Treatment was assigned at the session-level matching group. Standard errors are clustered at that level throughout. Figure 4 follows the current paper and gives equal weight to each independent session. Table 6 follows the current paper regression and gives equal weight to each complete market-period while clustering by session. This difference is flagged in `INCONSISTENCIES.md`.
 
-## Independent verification
-
-The numeric targets in `verification/verified_targets.csv` were independently checked from the supplied data. The Stata code has been written for Stata 18, but Stata was not available in the file-construction environment. Researchers should inspect the log after the first run and compare the generated CSV files with the target file.
-
 ## Paper to output map
 
 | Paper item | Replication output |
